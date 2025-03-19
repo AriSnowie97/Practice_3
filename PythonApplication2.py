@@ -36,3 +36,36 @@ text_number1 = "145"
 text_number2 = "12"
 result = arifmetic_operation(text_number1, text_number2)
 print(result)
+print("Task 3")
+def convert_and_calulate(input_string, operation="sum"):
+    try:
+        numbers = [float(x) for x in input_string.split(",")]
+        if operation == "sum":
+            return sum(numbers)
+        elif operation == "average":
+            return sum(numbers) / len(numbers)
+        else:
+            return None
+    except ValueError:
+        return None
+input_str = "1,2,3,4,5"
+sum_result = convert_and_calulate(input_str, "sum")
+average_result = convert_and_calulate(input_str, "average")
+if sum_result is not None:
+    print(f"Sum of numbers: {sum_result}")
+if average_result is not None:
+    print(f"Average of numbers: {average_result}")
+
+error_input = "1,2,3,4,5,abc"
+error_result = convert_and_calulate(error_input, "sum")
+if error_result is None:
+    print("Invalid input: This text is not number")
+print("Task 4")
+def format_float_to_string(number, decimal_places):
+    formatted_string = f"{number:.{decimal_places}f}"
+    return formatted_string
+
+number = 3.14159
+decimal_places = 2
+result = format_float_to_string(number, decimal_places)
+print(result)
